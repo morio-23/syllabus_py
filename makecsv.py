@@ -1,6 +1,6 @@
 import csv
 
-filename = "testdir/170051.pdf_output.txt"
+filename = "textfile/170051.pdf_output.txt"
 
 f = open(filename, 'r', encoding='UTF-8')
 
@@ -53,8 +53,6 @@ class syllabus:
         self.related = related
         self.link = link
         self.notes = notes
-
- git
 
 #CSV書き込み
 with open("syllabus.csv", 'w')as csv_f:
