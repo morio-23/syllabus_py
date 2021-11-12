@@ -7,9 +7,8 @@ import os
 
 i = 0
 
+#保存先ファイルの指定・確認してなければ作成
 pdffile_path = os.path.abspath('./pdffile')
-
-#保存先ディレクトリが存在しなければ作成する
 if os.path.exists(pdffile_path) != True:
     os.mkdir(pdffile_path)
 

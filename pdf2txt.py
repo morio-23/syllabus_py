@@ -3,15 +3,22 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
+import os
 
-files = glob.glob("testdir//*.pdf")
-print(files)
+#PDFファイルの一覧を取得
+pdffiles = glob.glob("pdffile/*.pdf")
+print(pdffiles)
 
 manager = PDFResourceManager()
 
-for file in files:
+#保存先ファイルの指定・確認してなければ作成
+txtfile_path = os.path.abspath('./txtfile')
+if os.path.exists(txtfile_path) != True:
+    os.mkdir(txtfile_path)
+
+for file in pdffiles:
     pdf_path = file
-    output_path = file + "_output.txt"
+    output_path = os.path.join(txtfile_path, os.path.split(file)[1] + "_output.txt")
     with open(output_path, "wb") as output:
         with open(pdf_path, 'rb') as input:
             with TextConverter(manager, output, codec='utf-8', laparams=LAParams()) as conv:
