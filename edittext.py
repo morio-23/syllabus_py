@@ -1,35 +1,40 @@
 import os
+import glob
 
-filename = "downloadtxt/175000.txt"
+filelist = glob.glob("./downloadtxt/*.txt")
 
-f = open(filename, 'r', encoding='UTF-8')
+print(filelist)
 
-txt = f.readlines()
+for filename in filelist:
+    print(filename)
+    f = open(filename, 'r', encoding='UTF-8')
 
-f.close()
+    txt = f.readlines()
 
-#print(txt)
+    f.close()
 
-edit_txt = [e.replace('\xa0','').replace('\u3000','')for e in txt]
+    #print(txt)
 
-reedit_txt = []
+    edit_txt = [e.replace('\xa0','').replace('\u3000','')for e in txt]
 
-for i in edit_txt:
-    #レスポンシブデザインの切り替わりで中断する
-    if(i == '\t\t\t\t\n'):
-        break
-    #改行コードじゃなかったらどんどん入れていくよ
-    if(i != '\n'):
-        reedit_txt.append(i)
-    
+    reedit_txt = []
 
-#print(edit_txt)
-print(reedit_txt)
+    for i in edit_txt:
+        #レスポンシブデザインの切り替わりで中断する
+        if(i == '\t\t\t\t\n'):
+            break
+        #改行コードじゃなかったらどんどん入れていくよ
+        if(i != '\n'):
+            reedit_txt.append(i)
+        
 
-fw = open("maketxt.txt",'w', encoding="UTF-8")
+    #print(edit_txt)
+    print(reedit_txt)
 
-for i in reedit_txt:
-    print(i)
-    fw.write(i)
+    path, file = os.path.split(filename)
+    fw = open("./edittxt/"+file,'w', encoding="UTF-8")
 
-fw.close()
+    for i in reedit_txt:
+        fw.write(i)
+
+    fw.close()
