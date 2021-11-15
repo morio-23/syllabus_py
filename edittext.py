@@ -5,6 +5,10 @@ filelist = glob.glob("./downloadtxt/*.txt")
 
 print(filelist)
 
+file_path = os.path.abspath('./edittxt')
+if os.path.exists(file_path) != True:
+    os.mkdir(file_path)
+
 for filename in filelist:
     print(filename)
     f = open(filename, 'r', encoding='UTF-8')
