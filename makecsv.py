@@ -1,6 +1,7 @@
 # coding: utf-8
 import csv
 import glob
+from os import truncate
 
 txtlist = glob.glob("./edittxt/*.txt")
 print(txtlist)
@@ -42,8 +43,9 @@ class syllabus:
         self.link = link
         self.notes = notes
 
-
 sy_title = ['富山大学 SYLLABUS\n','授業科目名\n','（英文名）\n','担当教員（所属）\n','授業科目区分\n','授業種別\n','COC+科目\n','開講学期\n','対象所属\n','対象学年\n','時間割コード\n','単位数\n','ナンバリングコード\n','最終更新日時\n','オフィスアワー（自由質問時間）\n','リアルタイム・アドバイス：更新日','授業のねらいとカリキュラム上の位置付け（一般学習目標）\n','教育目標\n','達成目標\n','授業計画（授業の形式、スケジュール等）\n','授業時間外学修\n','キーワード\n','履修上の注意\n','成績評価の方法\n','教科書・参考書等\n','関連科目\n','リンク先ホームページアドレス\n','備考\n']
+
+null_flag = False
 
 for txtfile in txtlist:
 
@@ -60,9 +62,12 @@ for txtfile in txtlist:
     print(len(txt))
 
     for i in range(len(txt)):
+        if(txt[i] == sy_title[1] and txt[i+1] == sy_title[2]):
+            null_flag = True
+            break
         if(txt[i] == sy_title[1] and txt[i+1] != sy_title[2]):
             sy.classname = txt[i+1]
-        if(txt[i] == sy_title[2] and txt[i+1] != sy_title[3]):
+        elif(txt[i] == sy_title[2] and txt[i+1] != sy_title[3]):
             sy.classname = sy.classname + txt[i+1]
         elif(txt[i] == sy_title[3] and txt[i+1] != sy_title[4]):
             sy.teacher = txt[i+1]
@@ -158,6 +163,10 @@ for txtfile in txtlist:
                 sy.notes = sy.notes + txt[i+cnt]
                 cnt += 1
             cnt = 1
+
+    if(null_flag):
+        null_flag = False
+        continue
 
     with open("syllabus.csv", 'a', encoding='UTF-8_sig', newline="")as csv_f:
         #CSV書き込み
