@@ -7,7 +7,7 @@ txtlist = glob.glob("./edittxt/*.txt")
 print(txtlist)
 
 with open("syllabus.csv", 'w', encoding='UTF-8_sig', newline="")as csv_f:
-    feildnames = ['classname','teacher','classcategory','classtype','coc','period','faculty','classregicode','grade','classnumcode','credit','latestupdate','officehours','rtadvice','objective','edugoals','goals','schedule','studyoutside','keywords','notice','textbooks','evaluation','related','link','notes']
+    feildnames = ['classname','teacher','classcategory','classtype','coc','period','faculty','classregicode','grade','classnumcode','credit','latestupdate','officehours','rtadvice','objective','edugoals','goals','schedule','studyoutside','keywords','notice','evaluation','textbooks','related','link','notes']
     writer = csv.DictWriter(csv_f,fieldnames=feildnames)
     writer.writeheader()
 
@@ -15,7 +15,7 @@ csv_f.close()
 
 #構造体としてデータを整理する
 class syllabus:
-    def __init__(self,classname='',teacher='',classcategory= '',coc='-',classtype= '',period= '',faculty= '',classregcode= '',grade= '',classnumcode='',credit= '',latestupdate='',officehours= '',rtadvice= '',objective= '',edugoals= '',goals= '',schedule= '',studyoutside= '',keywords= '',notice= '',textbooks= '',evaluation= '',related= '',link= '',notes= ''):
+    def __init__(self,classname='',teacher='',classcategory= '',coc='-',classtype= '',period= '',faculty= '',classregcode= '',grade= '',classnumcode='',credit= '',latestupdate='',officehours= '',rtadvice= '',objective= '',edugoals= '',goals= '',schedule= '',studyoutside= '',keywords= '',notice= '',evaluation= '',textbooks= '',related= '',link= '',notes= ''):
         self.classname = classname
         self.teacher = teacher
         self.classcategory = classcategory
@@ -140,12 +140,12 @@ for txtfile in txtlist:
             cnt = 1
         elif(txt[i] == sy_title[23] and txt[i+1] != sy_title[24]):
             while(txt[i+cnt]!=sy_title[24]):
-                sy.textbooks = sy.textbooks + txt[i+cnt]
+                sy.evaluation = sy.evaluation + txt[i+cnt]
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[24] and txt[i+1] != sy_title[25]):
             while(txt[i+cnt]!=sy_title[25]):
-                sy.evaluation = sy.evaluation + txt[i+cnt]
+                sy.textbooks = sy.textbooks + txt[i+cnt]
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[25] and txt[i+1] != sy_title[26]):
@@ -166,11 +166,13 @@ for txtfile in txtlist:
 
     if(null_flag):
         null_flag = False
+        print(txtfile)
+        print("空データだよ！！！！！！！！！！！！\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         continue
 
     with open("syllabus.csv", 'a', encoding='UTF-8_sig', newline="")as csv_f:
         #CSV書き込み
-        writetext =[sy.classname,sy.teacher,sy.classcategory,sy.coc,sy.classtype,sy.period,sy.faculty,sy.classregcode,sy.grade,sy.classnumcode,sy.credit,sy.latestupdate,sy.officehours,sy.rtadvice,sy.objective,sy.edugoals,sy.goals,sy.schedule,sy.studyoutside,sy.keywords,sy.notice,sy.textbooks,sy.evaluation,sy.related,sy.link,sy.notes]
+        writetext =[sy.classname,sy.teacher,sy.classcategory,sy.classtype,sy.coc,sy.period,sy.faculty,sy.classregcode,sy.grade,sy.classnumcode,sy.credit,sy.latestupdate,sy.officehours,sy.rtadvice,sy.objective,sy.edugoals,sy.goals,sy.schedule,sy.studyoutside,sy.keywords,sy.notice,sy.evaluation,sy.textbooks,sy.related,sy.link,sy.notes]
 
         writer = csv.writer(csv_f)
         writer.writerow(writetext)
