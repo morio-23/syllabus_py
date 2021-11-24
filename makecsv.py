@@ -3,6 +3,7 @@ import csv
 import glob
 from os import truncate
 
+
 txtlist = glob.glob("./edittxt/*.txt")
 print(txtlist)
 
