@@ -67,101 +67,101 @@ for txtfile in txtlist:
             null_flag = True
             break
         if(txt[i] == sy_title[1] and txt[i+1] != sy_title[2]):
-            sy.classname = txt[i+1]
+            sy.classname = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[2] and txt[i+1] != sy_title[3]):
-            sy.classname = sy.classname + txt[i+1]
+            sy.classname = sy.classname + txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[3] and txt[i+1] != sy_title[4]):
-            sy.teacher = txt[i+1]
+            sy.teacher = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[4] and txt[i+1] != sy_title[5]):
-            sy.classcategory = txt[i+1]
+            sy.classcategory = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[5] and txt[i+1] != sy_title[6]):
-            sy.classtype = txt[i+1]
+            sy.classtype = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[6] and txt[i+1] != sy_title[7]):
-            sy.coc = txt[i+1]
+            sy.coc = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[7] and txt[i+1] != sy_title[8]):
-            sy.period = txt[i+1]
+            sy.period = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[8] and txt[i+1] != sy_title[9]):
-            sy.faculty = txt[i+1]
+            sy.faculty = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[9] and txt[i+1] != sy_title[10]):
-            sy.grade = txt[i+1]
+            sy.grade = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[10] and txt[i+1] != sy_title[11]):
-            sy.classregcode = txt[i+1]
+            sy.classregcode = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[11] and txt[i+1] != sy_title[12]):
-            sy.credit = txt[i+1]
+            sy.credit = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[12] and txt[i+1] != sy_title[13]):
-            sy.classnumcode = txt[i+1]
+            sy.classnumcode = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[13] and txt[i+1] != sy_title[14]):
-            sy.latestupdate = txt[i+1]
+            sy.latestupdate = txt[i+1].replace('\n','')
         elif(txt[i] == sy_title[14] and not txt[i+1].startswith(sy_title[15])):
             while(not txt[i+cnt].startswith(sy_title[15])):
-                sy.officehours = sy.officehours + txt[i+cnt]
+                sy.officehours = sy.officehours + txt[i+cnt].replace('\n','')
                 print(txt[i+cnt].startswith(sy_title[15]))
                 print(i+cnt)
                 cnt += 1
             cnt = 1
         elif(txt[i].startswith(sy_title[15]) and txt[i+1] != sy_title[16]):
             while(txt[i+cnt]!=sy_title[16]):
-                sy.rtadvice = sy.rtadvice + txt[i+cnt]
+                sy.rtadvice = sy.rtadvice + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[16] and txt[i+1] != sy_title[17]):
             while(txt[i+cnt]!=sy_title[17]):
-                sy.objective = sy.objective + txt[i+cnt]
+                sy.objective = sy.objective + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[17] and txt[i+1] != sy_title[18]):
             while(txt[i+cnt]!=sy_title[18]):
-                sy.edugoals = sy.edugoals + txt[i+cnt]
+                sy.edugoals = sy.edugoals + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[18] and txt[i+1] != sy_title[19]):
             while(txt[i+cnt]!=sy_title[19]):
-                sy.goals = sy.goals + txt[i+cnt]
+                sy.goals = sy.goals + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[19] and txt[i+1] != sy_title[20]):
             while(txt[i+cnt]!=sy_title[20]):
-                sy.schedule = sy.schedule + txt[i+cnt]
+                sy.schedule = sy.schedule + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[20] and txt[i+1] != sy_title[21]):
             while(txt[i+cnt]!=sy_title[21]):
-                sy.studyoutside = sy.studyoutside + txt[i+cnt]
+                sy.studyoutside = sy.studyoutside + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[21] and txt[i+1] != sy_title[22]):
             while(txt[i+cnt]!=sy_title[22]):
-                sy.keywords = sy.keywords + txt[i+cnt]
+                sy.keywords = sy.keywords + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[22] and txt[i+1] != sy_title[23]):
             while(txt[i+cnt]!=sy_title[23]):
-                sy.notice = sy.notice + txt[i+cnt]
+                sy.notice = sy.notice + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[23] and txt[i+1] != sy_title[24]):
             while(txt[i+cnt]!=sy_title[24]):
-                sy.evaluation = sy.evaluation + txt[i+cnt]
+                sy.evaluation = sy.evaluation + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[24] and txt[i+1] != sy_title[25]):
             while(txt[i+cnt]!=sy_title[25]):
-                sy.textbooks = sy.textbooks + txt[i+cnt]
+                sy.textbooks = sy.textbooks + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[25] and txt[i+1] != sy_title[26]):
             while(txt[i+cnt]!=sy_title[26]):
-                sy.related = sy.related + txt[i+cnt]
+                sy.related = sy.related + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[26] and txt[i+1] != sy_title[27]):
             while(txt[i+cnt]!=sy_title[27]):
-                sy.link = sy.link + txt[i+cnt]
+                sy.link = sy.link + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
         elif(txt[i] == sy_title[27]):
             while(txt[i+cnt]== ''):
-                sy.notes = sy.notes + txt[i+cnt]
+                sy.notes = sy.notes + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
 
