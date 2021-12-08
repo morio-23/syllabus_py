@@ -66,31 +66,71 @@ for txtfile in txtlist:
             null_flag = True
             break
         if(txt[i] == sy_title[1] and txt[i+1] != sy_title[2]):
-            sy.classname = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[2]):
+                sy.classname = sy.classname + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[2] and txt[i+1] != sy_title[3]):
-            sy.classname = sy.classname + txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[3]):
+                sy.classname = sy.classname + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[3] and txt[i+1] != sy_title[4]):
-            sy.teacher = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[4]):
+                sy.teacher = sy.teacher + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
+            sy.teacher = sy.teacher.replace(',','/')
         elif(txt[i] == sy_title[4] and txt[i+1] != sy_title[5]):
-            sy.classcategory = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[5]):
+                sy.classcategory = sy.classcategory + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[5] and txt[i+1] != sy_title[6]):
-            sy.classtype = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[6]):
+                sy.classtype = sy.classtype + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[6] and txt[i+1] != sy_title[7]):
-            sy.coc = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[7]):
+                sy.coc = sy.coc + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[7] and txt[i+1] != sy_title[8]):
-            sy.period = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[8]):
+                sy.period = sy.period + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[8] and txt[i+1] != sy_title[9]):
-            sy.faculty = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[9]):
+                sy.faculty = sy.faculty + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[9] and txt[i+1] != sy_title[10]):
-            sy.grade = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[10]):
+                sy.grade = sy.grade + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[10] and txt[i+1] != sy_title[11]):
-            sy.classregcode = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[11]):
+                sy.classregcode = sy.classregcode + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[11] and txt[i+1] != sy_title[12]):
-            sy.credit = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[12]):
+                sy.credit = sy.credit + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[12] and txt[i+1] != sy_title[13]):
-            sy.classnumcode = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[13]):
+                sy.classnumcode = sy.classnumcode + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[13] and txt[i+1] != sy_title[14]):
-            sy.latestupdate = txt[i+1].replace('\n','')
+            while(txt[i+cnt]!=sy_title[14]):
+                sy.latestupdate = sy.latestupdate + txt[i+cnt].replace('\n','')
+                cnt += 1
+            cnt = 1
         elif(txt[i] == sy_title[14] and not txt[i+1].startswith(sy_title[15])):
             while(not txt[i+cnt].startswith(sy_title[15])):
                 sy.officehours = sy.officehours + txt[i+cnt].replace('\n','')
