@@ -76,12 +76,13 @@ for txtfile in txtlist:
                 sy.classname = sy.classname + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
+            sy.classname = sy.classname.replace(',',' ')#pythonから直接DBつくるならいらない
         elif(txt[i] == sy_title[3] and txt[i+1] != sy_title[4]):
             while(txt[i+cnt]!=sy_title[4]):
                 sy.teacher = sy.teacher + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
-            sy.teacher = sy.teacher.replace(',','/')
+            sy.teacher = sy.teacher.replace(',','/')#pythonから直接DBつくるならいらない
         elif(txt[i] == sy_title[4] and txt[i+1] != sy_title[5]):
             while(txt[i+cnt]!=sy_title[5]):
                 sy.classcategory = sy.classcategory + txt[i+cnt].replace('\n','')
@@ -107,6 +108,7 @@ for txtfile in txtlist:
                 sy.faculty = sy.faculty + txt[i+cnt].replace('\n','')
                 cnt += 1
             cnt = 1
+            sy.faculty = sy.faculty.replace(',',' ')#pythonから直接DBつくるならいらない
         elif(txt[i] == sy_title[9] and txt[i+1] != sy_title[10]):
             while(txt[i+cnt]!=sy_title[10]):
                 sy.grade = sy.grade + txt[i+cnt].replace('\n','')
